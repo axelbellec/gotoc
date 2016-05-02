@@ -3,7 +3,7 @@
 # gotoc
 :page_facing_up: _Markdown table of contents generator_
 
-![logo_godoc](img/godoc.png)
+![logo_godoc](img/gotoc.png)
 
 `gotoc` is a tool to generate markdown table of contents inside local git repo.  
 Links generated refers to Github anchors.
