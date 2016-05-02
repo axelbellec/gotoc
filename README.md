@@ -1,11 +1,11 @@
 ![License](http://img.shields.io/:license-mit-blue.svg)
 
 # gotoc
-:page_facing_up: Markdown table of contents generator
+:page_facing_up: _Markdown table of contents generator_
 
 ![logo_godoc](img/godoc.png)
 
-`gotoc` is a tool to generate markdown table of contents inside local git repo.
+`gotoc` is a tool to generate markdown table of contents inside local git repo.  
 Links generated refers to Github anchors.
 
 ## Installation
@@ -33,7 +33,7 @@ go build gotoc.go
 
 ## Custom TOC title
 
-To specify custom TOC title like `**Repo : Table of Contents**` you can pass the argument : `-title='<yourtitle>'`.
+To specify custom TOC title like `**Repo : Table of Contents**` you can pass the argument : `-title='<yourtitle>'`.  
 To remove title from TOC, just use the option `-notitle`.
 
 ## Max heading level for TOC entries
