@@ -74,13 +74,13 @@ func main() {
 			headerCount := strings.Count(line, "#")
 
 			if headerCount <= *maxDepth {
-				content := line[headerCount:]
-				cleanedContent := removeSpecialCharacters(content)
+				content := line[headerCount+1:]
 				doctoc.depth = append(doctoc.depth, headerCount)
 				indentation := (headerCount - 1) * 2
 				nSpaces := computeSpaces(indentation)
+				cleanedContent := removeSpecialCharacters(content)
 				doctoc.spaces = append(doctoc.spaces, nSpaces)
-				doctoc.title = append(doctoc.title, cleanedContent)
+				doctoc.title = append(doctoc.title, content)
 				doctoc.link = append(doctoc.link, formatLink(cleanedContent))
 			}
 		}
