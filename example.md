@@ -22,7 +22,7 @@ Paragraphs must be separated by a blank line. Basic formatting of *italics* and 
 
 *Note: the fourth item uses the Unicode character for [Roman numeral four][2].*
 
-### [Unordered] list
+### Unordered list
 
 * An item
 * Another item

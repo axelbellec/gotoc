@@ -55,12 +55,13 @@ func main() {
 	var line string
 	var doctoc = new(Toc)
 
+	filename := flag.String("file", "", "a string")
 	maxDepth := flag.Int("depth", 3, "an int")
 	title := flag.String("title", headerTitle(), "a string")
 	noTitle := flag.Bool("notitle", false, "a bool")
 	flag.Parse()
 
-	file, err := os.OpenFile("example.md", os.O_RDWR|os.O_APPEND, 0600)
+	file, err := os.OpenFile(*filename, os.O_RDWR|os.O_APPEND, 0600)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -98,7 +99,6 @@ func main() {
 		if _, err = file.WriteString(toWrite); err != nil {
 			log.Fatal(err)
 		}
-
 	}
 
 	if err := scanner.Err(); err != nil {
