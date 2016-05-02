@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-type toc struct {
+type Toc struct {
 	header []int
 	title  []string
 }
@@ -28,8 +28,7 @@ func removeSpecialCharacters(str string) string {
 func main() {
 	var startsWith bool
 	var line string
-	// var headerCount string
-	// var content string
+	var doctoc = new(Toc)
 
 	file, err := os.Open("example.md")
 	if err != nil {
@@ -50,9 +49,12 @@ func main() {
 			fmt.Println(content)
 			cleanedContent := removeSpecialCharacters(content)
 			fmt.Println(cleanedContent)
+			doctoc.header = append(doctoc.header, headerCount)
+			doctoc.title = append(doctoc.title, cleanedContent)
 		}
-		// toc := toc{header: headerCount, title: content}
 	}
+
+	fmt.Println(doctoc)
 
 	if err := scanner.Err(); err != nil {
 		log.Fatal(err)
