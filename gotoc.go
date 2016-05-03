@@ -50,6 +50,11 @@ func computeSpaces(depth int) string {
 	return spaces
 }
 
+func outputLine(n int) string {
+	line := strings.Repeat("-", n)
+	return line
+}
+
 func main() {
 	var startsWith bool
 	var line string
@@ -107,6 +112,8 @@ func main() {
 	if _, err = newFile.WriteString(createHeader(*title)); err != nil {
 		log.Fatal(err)
 	}
+	os.Stderr.WriteString("Generating Table of Contents\n")
+	os.Stderr.WriteString(fmt.Sprintf("%s\n", outputLine(28)))
 	for i := range doctoc.depth {
 		doctocContent := fmt.Sprintf("%s- [%s](%s) \n", doctoc.spaces[i], doctoc.title[i], doctoc.link[i])
 		if _, err = newFile.WriteString(doctocContent); err != nil {
@@ -114,12 +121,14 @@ func main() {
 		}
 	}
 
+	os.Stderr.WriteString(fmt.Sprintf("'%s' will be updated\n", *filename))
 	for i := range fileContent {
 		originalContent := fmt.Sprintf("%s\n", fileContent[i])
 		if _, err = newFile.WriteString(originalContent); err != nil {
 			log.Fatal(err)
 		}
 	}
+	os.Stderr.WriteString("Done\n")
 
 	if err := scanner.Err(); err != nil {
 		log.Fatal(err)
