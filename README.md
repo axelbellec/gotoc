@@ -5,7 +5,7 @@
 
 ![logo_godoc](img/gotoc.png)
 
-`gotoc` is a tool to generate markdown table of contents inside local git repo.  
+`gotoc` is a tool made to generate markdown table of contents inside local git repo.  
 Links generated refers to Github anchors.
 
 ## Installation
@@ -16,10 +16,13 @@ cd gotoc
 go build gotoc.go
 ```
 
+Next, export your path to the binary file :  
+`export gotoc=/your/path/to/gotoc`
+
 ## Usage
 
 ```sh
-./gotoc -file=README.md
+gotoc -file=README.md
 ```
 
 ```md
