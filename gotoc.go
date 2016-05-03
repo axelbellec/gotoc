@@ -19,7 +19,7 @@ type Toc struct {
 }
 
 func headerTitle() string {
-	header := "\n**Table of Contents**"
+	header := "\n**Table of Contents** (by [`gotoc`](https://github.com/Belekkk/gotoc))"
 	return header
 }
 
