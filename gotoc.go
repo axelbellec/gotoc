@@ -54,6 +54,7 @@ func main() {
 	var startsWith bool
 	var line string
 	var doctoc = new(Toc)
+	var fileContent []string
 
 	filename := flag.String("file", "", "a string")
 	maxDepth := flag.Int("depth", 3, "an int")
@@ -85,18 +86,37 @@ func main() {
 				doctoc.link = append(doctoc.link, formatLink(cleanedContent))
 			}
 		}
+		fileContent = append(fileContent, line)
+	}
+
+	err = os.Remove(*filename)
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	if *noTitle == true {
 		*title = ""
 	}
 
-	if _, err = file.WriteString(createHeader(*title)); err != nil {
+	newFile, err := os.OpenFile(*filename, os.O_CREATE|os.O_RDWR, 0600)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer newFile.Close()
+
+	if _, err = newFile.WriteString(createHeader(*title)); err != nil {
 		log.Fatal(err)
 	}
 	for i := range doctoc.depth {
-		toWrite := fmt.Sprintf("%s- [%s](%s) \n", doctoc.spaces[i], doctoc.title[i], doctoc.link[i])
-		if _, err = file.WriteString(toWrite); err != nil {
+		doctocContent := fmt.Sprintf("%s- [%s](%s) \n", doctoc.spaces[i], doctoc.title[i], doctoc.link[i])
+		if _, err = newFile.WriteString(doctocContent); err != nil {
+			log.Fatal(err)
+		}
+	}
+
+	for i := range fileContent {
+		originalContent := fmt.Sprintf("%s\n", fileContent[i])
+		if _, err = newFile.WriteString(originalContent); err != nil {
 			log.Fatal(err)
 		}
 	}

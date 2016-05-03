@@ -8,16 +8,12 @@
 `gotoc` is a tool made to generate markdown table of contents inside local git repo.  
 Links generated refers to Github anchors.
 
-## Installation
+## Install
 
 ```sh
-git clone https://github.com/Belekkk/gotoc.git gotoc
-cd gotoc
-go build gotoc.go
+go get github.com/Belekkk/gotoc
 ```
 
-Next, export your path to the binary file :  
-`export gotoc=/your/path/to/gotoc`
 
 ## Usage
 
