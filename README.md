@@ -11,7 +11,7 @@ Links generated refers to Github anchors.
 ## Install
 
 ```sh
-go get github.com/Belekkk/gotoc
+go install github.com/Belekkk/gotoc
 ```
 
 
