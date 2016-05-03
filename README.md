@@ -38,3 +38,12 @@ To remove title from TOC, just use the option `-notitle`.
 ## Max heading level for TOC entries
 
 To limit TOC entries to a specified level of headings, use : `-depth=3`.
+
+## Features
+
+- [X] Generate TOC a top of file
+- [X] Enable custom TOC title editing
+- [X] Limit TOC entries
+- [ ] Update an existing TOC in Markdown file
+- [ ] Handle multiple files input
+- [ ] Adding TOC to all files in a directory/sub directories
