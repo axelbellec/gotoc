@@ -49,6 +49,8 @@ To limit TOC entries to a specified level of headings, use : `-depth=3`.
 
 To add a TOC to all markdown files in the current directory and subdirectories just use the option `-dir`.  
 
+![logo_godoc](img/toc_all_dir.png)
+
 ## Features
 
 ### Done
