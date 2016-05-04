@@ -1,3 +1,4 @@
+
 ![License](http://img.shields.io/:license-mit-blue.svg)
 
 # gotoc
@@ -5,7 +6,7 @@
 
 ![logo_godoc](img/gotoc.png)
 
-`gotoc` is a tool made to generate markdown table of contents inside local git repo.  
+`gotoc` is a tool made in **Go** to generate markdown table of contents inside local git repo.  
 Links generated refers to Github anchors.
 
 ## Install
@@ -29,6 +30,7 @@ gotoc -file=README.md
   - [Usage](#usage)
   - [Custom TOC title](#custom-toc-title)
   - [Max heading level for TOC entries](#max-heading-level-for-toc-entries)
+  - [Compute TOC recursively for each `.md` file in directory/sub directories](#compute-toc-recursively-for-each-md-file-in-directory-sub-directories)
   - [Features](#features)
     - [Done](#done)
     - [Still in development](#still-in-development)
@@ -43,6 +45,10 @@ To remove title from TOC, just use the option `-notitle`.
 
 To limit TOC entries to a specified level of headings, use : `-depth=3`.
 
+## Compute TOC recursively for each `.md` file in directory/subdirectories
+
+To add a TOC to all markdown files in the current directory and subdirectories just use the option `-dir`.  
+
 ## Features
 
 ### Done
@@ -50,9 +56,9 @@ To limit TOC entries to a specified level of headings, use : `-depth=3`.
 - [X] Generate TOC a top of file
 - [X] Enable custom TOC title editing
 - [X] Limit TOC entries
+- [X] Adding TOC to all files in a directory/sub directories
 
 ### Still in development
 
 - [ ] Update an existing TOC in Markdown file
 - [ ] Handle multiple files input
-- [ ] Adding TOC to all files in a directory/sub directories
